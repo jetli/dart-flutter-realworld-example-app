@@ -2,7 +2,7 @@
 
 [![RealWorld Frontend](https://img.shields.io/badge/realworld-frontend-%23783578.svg)](http://realworld.io)
 
-> ### [Flutter] +  iOS + Android + Web + Desktop codebase containing real world examples (CRUD, auth, advanced patterns, etc) that adheres to the [RealWorld] spec and API.
+> ### [Flutter] +  iOS + Android + Web + macOS + Linux + Windows codebase containing real world examples (CRUD, auth, advanced patterns, etc) that adheres to the [RealWorld] spec and API.
 
 
 ### [Demo]&nbsp;&nbsp;&nbsp;&nbsp;[RealWorld]
@@ -26,14 +26,20 @@ You can view a live demo over at [Demo]
 * Install [Flutter]
 * Build and develop
   ```
-  flutter channel master
+  flutter channel dev
   flutter upgrade
   flutter config --enable-web
   flutter config --enable-macos-desktop
+  flutter config --enable-linux-desktop
+  flutter config --enable-windows-desktop
 
   flutter run
-  flutter run -d chrome
-  flutter run -d macOS
+  flutter run -d web
+  flutter run -d macos
+  flutter run -d linux
+  flutter run -d windows
+  flutter run -d android
+  flutter run -d ios
   ```
 
 # Contributing
