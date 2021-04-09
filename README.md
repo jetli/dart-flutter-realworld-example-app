@@ -26,7 +26,7 @@ You can view a live demo over at [Demo]
 * Install [Flutter]
 * Build and develop
   ```
-  flutter channel dev
+  flutter channel beta
   flutter upgrade
   flutter config --enable-web
   flutter config --enable-macos-desktop
