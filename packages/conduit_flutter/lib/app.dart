@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:conduit_flutter/routes/home/home.dart';
+import 'package:conduit_flutter/routes/routes.dart';
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
   // This widget is the root of your application.
   @override
+  State<StatefulWidget> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  AppRouterDelegate _delegate = AppRouterDelegate();
+  AppRouteInformationParser _parser = AppRouteInformationParser();
+  
+  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Conduit',
       theme: ThemeData(
         // This is the theme of your application.
@@ -19,7 +27,8 @@ class App extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.green,
       ),
-      home: HomePage(title: 'conduit'),
+      routerDelegate: _delegate,
+      routeInformationParser: _parser,
     );
   }
 }
