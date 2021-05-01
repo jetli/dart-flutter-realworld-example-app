@@ -1,6 +1,7 @@
 /// Define routes for the app.
 
 import 'package:conduit_flutter/routes/home/home.dart';
+import 'package:conduit_flutter/routes/settings/settings.dart';
 import 'package:flutter/material.dart';
 
 /// Base app route of all routes.
@@ -44,12 +45,13 @@ class HomeRoute extends AppRoute {}
 class AppRouteInformationParser extends RouteInformationParser<AppRoute> {
   @override
   // Take a url location, and create an [AppRoute] from it.
-  Future<AppRoute> parseRouteInformation(RouteInformation routeInformation) async {
+  Future<AppRoute> parseRouteInformation(
+      RouteInformation routeInformation) async {
     final uri = Uri.parse(routeInformation.location ?? '/');
 
     if (uri == '/settings') {
       return SettingsRoute();
-    } 
+    }
 
     return HomeRoute();
   }
@@ -67,7 +69,6 @@ class AppRouteInformationParser extends RouteInformationParser<AppRoute> {
 
     return null;
   }
-
 }
 
 /// Configure the routes.
@@ -75,7 +76,7 @@ class AppRouterDelegate extends RouterDelegate<AppRoute>
     with ChangeNotifier, PopNavigatorRouterDelegateMixin<AppRoute> {
   final GlobalKey<NavigatorState> navigatorKey;
 
-  AppRouterDelegate(): navigatorKey = GlobalKey<NavigatorState>();
+  AppRouterDelegate() : navigatorKey = GlobalKey<NavigatorState>();
 
   @override
   AppRoute? get currentConfiguration {
@@ -87,7 +88,9 @@ class AppRouterDelegate extends RouterDelegate<AppRoute>
     return Navigator(
       key: navigatorKey,
       pages: [
-        MaterialPage(key: ValueKey('HomePage'), child: HomePage(title: 'conduit'))
+        MaterialPage(
+            key: ValueKey('HomePage'), child: HomePage(title: 'conduit')),
+        MaterialPage(key: ValueKey('SettingsPage'), child: SettingsPage()),
       ],
       onPopPage: (route, result) {
         if (!route.didPop(result)) {
@@ -102,9 +105,5 @@ class AppRouterDelegate extends RouterDelegate<AppRoute>
   }
 
   @override
-  Future<void> setNewRoutePath(AppRoute configuration) async {
-    
-  }
+  Future<void> setNewRoutePath(AppRoute configuration) async {}
 }
-
-

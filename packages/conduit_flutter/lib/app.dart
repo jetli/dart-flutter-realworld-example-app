@@ -10,7 +10,7 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   AppRouterDelegate _delegate = AppRouterDelegate();
   AppRouteInformationParser _parser = AppRouteInformationParser();
-  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
@@ -32,4 +32,3 @@ class _AppState extends State<App> {
     );
   }
 }
-
